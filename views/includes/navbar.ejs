@@ -12,10 +12,15 @@
   }
 
   .navbar-collapse {
-      background-color: #f2f2f2; /* Match the navbar color */
-      transition: max-height 0.3s ease-in-out; /* Smooth sliding effect */
-      overflow: hidden; /* Prevent content overflow during sliding */
-  }
+    background-color: #f2f2f2;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
 
   .navbar-toggler {
       border: none;
