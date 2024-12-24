@@ -2,32 +2,20 @@
   body {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
   }
 
   .navbar {
-    margin: 0;
-    padding: 0;
     background-color: #f2f2f2;
     transition: height 0.3s ease, background-color 0.3s ease;
-  }
-
-  .navbar-collapse {
-    background-color: #f2f2f2;
-    transition: max-height 0.3s ease-in-out;
-    overflow: hidden;
-    width: 100%; /* Ensure full width of the navbar */
-  }
-
-  .navbar-collapse.collapsing {
-    max-height: 0;
-  }
-
-  .navbar-collapse.show {
-    max-height: 500px;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
   }
 
   .navbar-toggler {
     border: none;
+    outline: none;
   }
 
   .btn-search {
@@ -35,16 +23,12 @@
     color: white;
     border-radius: 25px;
     padding: 0 1rem;
+    border: none;
   }
 
   .btn-search:hover {
-    background-color: #fe424d;
+    background-color: #e73a43;
     color: white;
-  }
-
-  .btn-search i {
-    display: inline;
-    margin-right: 0.5rem;
   }
 
   .input-search {
@@ -61,42 +45,60 @@
     color: #fe424d;
   }
 
-  /* Adjustments for smaller screens */
+  .navbar-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background-color: #f2f2f2; /* Background for the expanded menu */
+    position: absolute;
+    width: 100%; /* Full width of the screen */
+    z-index: 1000; /* Ensures it overlays content below */
+  }
+
+  .navbar-collapse.show {
+    max-height: 400px; /* Adjust the height based on content */
+  }
+
   @media (max-width: 768px) {
     .navbar-collapse {
-      width: 100%;
+      position: absolute;
+      top: 100%; /* To push below the navbar */
+      left: 0;
+      right: 0;
+      z-index: 1000;
     }
 
     .navbar-nav {
-      width: 100%; /* Ensure navbar items span the full width */
-      display: flex;
       flex-direction: column;
-      align-items: flex-start; /* Align links to the left */
+      align-items: flex-start;
+      padding: 1rem;
     }
 
     .navbar-nav .nav-link {
       padding: 0.5rem 1rem;
-    }
-
-    .btn-search {
-      width: 100%; /* Make the search button full width */
-      border-radius: 25px;
-      margin-top: 0.5rem;
+      width: 100%;
     }
 
     .input-search {
       width: 100%;
-      border-radius: 25px;
+      margin-bottom: 1rem;
+    }
+
+    .btn-search {
+      width: 100%;
+    }
+
+    .navbar-collapse.show {
+      max-height: 400px; /* Smooth animation for expanded content */
+      overflow-y: auto; /* Allow scrolling if the content is longer */
     }
   }
 </style>
 
 <nav class="navbar navbar-expand-md sticky-top">
   <div class="container-fluid">
-    <!-- Brand -->
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-solid fa-compass"></i>
-    </a>
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
 
     <!-- Toggler button -->
     <button
@@ -113,12 +115,9 @@
 
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <!-- Left-aligned links -->
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
       </div>
-
-      <!-- Center-aligned search -->
       <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
           <input
@@ -132,8 +131,6 @@
           </button>
         </form>
       </div>
-
-      <!-- Right-aligned links -->
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Host</a>
 
