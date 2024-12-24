@@ -7,19 +7,23 @@
   .navbar {
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2; 
-      transition: height 0.3s ease, background-color 0.3s ease; 
+      background-color: #f2f2f2; /* Light grey for the navbar */
+      transition: height 0.3s ease, background-color 0.3s ease; /* Smooth height transition */
   }
 
   .navbar-collapse {
-      background-color: #f2f2f2;
-      transition: max-height 0.3s ease-in-out;
-      overflow: hidden;
+      background-color: #f2f2f2; 
+      transition: max-height 0.3s ease-in-out; 
+      overflow: hidden; 
+      width: auto;
+      
   }
 
   .navbar-toggler {
       border: none;
   }
+
+ 
 
   .btn-search {
       background-color: #fe424d;
@@ -45,71 +49,41 @@
   }
 
   .navbar-nav .nav-link {
-      color: #333; 
+      color: #333; /* Darker text for readability */
   }
 
   .navbar-nav .nav-link:hover {
-      color: #fe424d; 
+      color: #fe424d; /* Highlight effect */
   }
 
-  
+  /* Adjust for proper sliding height */
   .navbar-collapse.collapsing {
-      max-height: 0; 
+      max-height: 0; /* Start from height 0 during collapse/expand */
   }
 
   .navbar-collapse.show {
-      max-height: 500px; 
+      max-height: 300px; /* Adjust to the expected expanded height */
   }
 </style>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg">
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-  <ul class="navbar-nav">
-      <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Host</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Search</a>
-      </li>
-      <li class="nav-item">
-          <button class="btn-search">
-              <i class="bi bi-search"></i> Search
-          </button>
-      </li>
-  </ul>
-</div>
-</nav>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
 
 <nav class="navbar navbar-expand-md sticky-top">
   <div class="container-fluid">
-     
+      <!-- Brand -->
       <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
 
+      <!-- Toggler Button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
 
-      
+      <!-- Navbar Content -->
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        
+          <!-- Left Section -->
           <div class="navbar-nav">
               <a class="nav-link" href="/listings">Explore</a>
           </div>
 
-        
+          <!-- Search Bar -->
           <div class="navbar-nav ms-auto">
               <form class="d-flex" role="search">
                   <input class="form-control me-2 input-search" type="search" placeholder="Search destinations" aria-label="Search">
@@ -117,7 +91,7 @@
               </form>
           </div>
 
-      
+          <!-- Right Section -->
           <div class="navbar-nav ms-auto">
               <a class="nav-link" href="/listings/new">Host</a>
 
