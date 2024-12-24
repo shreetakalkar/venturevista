@@ -21,8 +21,9 @@
   .btn-search {
     background-color: #fe424d;
     color: white;
-    border-radius: 25px;
-    padding: 0 1rem;
+    border-radius: 20px;
+    padding: 0.25rem 1rem; /* Reduced button size */
+    font-size: 0.9rem; /* Smaller text */
     border: none;
   }
 
@@ -32,13 +33,14 @@
   }
 
   .input-search {
-    border-radius: 25px;
-    padding: 0.5rem 3rem;
-    font-size: 1rem;
+    border-radius: 20px;
+    padding: 0.4rem 2rem;
+    font-size: 0.9rem; /* Smaller text for inputs */
   }
 
   .navbar-nav .nav-link {
     color: #333;
+    margin: 0 0.5rem; /* Reduce space between nav links */
   }
 
   .navbar-nav .nav-link:hover {
@@ -46,17 +48,9 @@
   }
 
   .navbar-collapse {
-    max-height: 0;
-    overflow: hidden;
+    max-height: none; /* Ensure content is visible on larger screens */
+    overflow: visible;
     transition: max-height 0.5s ease-in-out;
-    background-color: #f2f2f2; /* Background for the expanded menu */
-    position: absolute;
-    width: 100%; /* Full width of the screen */
-    z-index: 1000; /* Ensures it overlays content below */
-  }
-
-  .navbar-collapse.show {
-    max-height: 400px; /* Adjust the height based on content */
   }
 
   @media (max-width: 768px) {
@@ -66,30 +60,32 @@
       left: 0;
       right: 0;
       z-index: 1000;
+      background-color: #f2f2f2;
     }
 
     .navbar-nav {
       flex-direction: column;
       align-items: flex-start;
-      padding: 1rem;
+      padding: 0.5rem 1rem; /* Reduced padding for compact look */
     }
 
     .navbar-nav .nav-link {
-      padding: 0.5rem 1rem;
+      padding: 0.25rem 0; /* Reduce padding between links */
       width: 100%;
     }
 
     .input-search {
       width: 100%;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem; /* Reduced gap below search input */
     }
 
     .btn-search {
       width: 100%;
+      margin: 0 auto; /* Center the search button */
     }
 
     .navbar-collapse.show {
-      max-height: 400px; /* Smooth animation for expanded content */
+      max-height: 300px; /* Smooth animation for expanded content */
       overflow-y: auto; /* Allow scrolling if the content is longer */
     }
   }
