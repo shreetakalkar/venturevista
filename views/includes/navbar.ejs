@@ -1,28 +1,73 @@
-
 <style>
-  .btn-search{
-    background-color:#fe424d;
+  /* Button styling */
+  .btn-search {
+    background-color: #fe424d;
     color: white;
     border-radius: 25px;
-    padding: 0 1rem 0 1 rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
   }
-  .btn-search:hover{
-    background-color:#fe424d;
+  .btn-search:hover {
+    background-color: #e73a43; /* Slightly darker shade for hover */
     color: white;
   }
-
-  .btn-search i{
+  .btn-search i {
     display: inline;
     margin-right: 0.5rem;
   }
 
-  .input-search{
-    border-radius:25px;
-    padding: 0.5rem 3rem 0.5rem 3rem ;
+  /* Input search styling */
+  .input-search {
+    border-radius: 25px;
+    padding: 0.5rem 2rem; /* Adjusted for better spacing */
     font-size: 1rem;
+    border: 1px solid #ccc; /* Light border for better contrast */
+  }
+  .input-search:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+    border-color: #fe424d;
+  }
 
+  /* Navbar fixes */
+  .navbar {
+    height: 5rem;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .navbar-brand i {
+    color: #fe424d;
+    font-size: 2rem;
+  }
+  .navbar-nav .nav-link {
+    color: #222222 !important;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+  .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .input-search {
+      font-size: 0.9rem;
+      padding: 0.4rem 1.5rem;
+    }
+    .btn-search {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+    .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
   }
 </style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
