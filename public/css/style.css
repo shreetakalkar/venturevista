@@ -168,7 +168,26 @@ card effect */
 
     }
     .card{
-        height: 150px;
-        width:100px;
+        height: 100px;
+        width:150px;
+    }
+}
+
+
+.starability-result {
+    font-size: 1.25rem;
+}
+
+.starability-result i {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+    .starability-result {
+        font-size: 1rem; 
+    }
+
+    .starability-result i {
+        font-size: 1.25rem;
     }
 }
