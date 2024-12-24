@@ -12,18 +12,14 @@
   }
 
   .navbar-collapse {
-      background-color: #f2f2f2; 
-      transition: max-height 0.3s ease-in-out; 
-      overflow: hidden; 
-      width: auto;
-      
+      background-color: #f2f2f2;
+      transition: max-height 0.3s ease-in-out;
+      overflow: hidden;
   }
 
   .navbar-toggler {
       border: none;
   }
-
- 
 
   .btn-search {
       background-color: #fe424d;
@@ -62,48 +58,36 @@
   }
 
   .navbar-collapse.show {
-      max-height: 300px; /* Adjust to the expected expanded height */
+      max-height: 500px; /* Adjust to the expected expanded height */
   }
 </style>
+</head>
+<body>
 
-<nav class="navbar navbar-expand-md sticky-top">
-  <div class="container-fluid">
-      <!-- Brand -->
-      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-
-      <!-- Toggler Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Navbar Content -->
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <!-- Left Section -->
-          <div class="navbar-nav">
-              <a class="nav-link" href="/listings">Explore</a>
-          </div>
-
-          <!-- Search Bar -->
-          <div class="navbar-nav ms-auto">
-              <form class="d-flex" role="search">
-                  <input class="form-control me-2 input-search" type="search" placeholder="Search destinations" aria-label="Search">
-                  <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-              </form>
-          </div>
-
-          <!-- Right Section -->
-          <div class="navbar-nav ms-auto">
-              <a class="nav-link" href="/listings/new">Host</a>
-
-              <% if (!currUser) { %>
-              <a class="nav-link" aria-current="page" href="/signup"><b>Sign up</b></a>
-              <a class="nav-link" href="/login"><b>Log in</b></a>
-              <% } %>
-
-              <% if (currUser) { %>
-              <a class="nav-link" href="/logout">Log out</a>
-              <% } %>
-          </div>
-      </div>
-  </div>
+<nav class="navbar navbar-expand-lg">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Host</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Search</a>
+      </li>
+      <li class="nav-item">
+          <button class="btn-search">
+              <i class="bi bi-search"></i> Search
+          </button>
+      </li>
+  </ul>
+</div>
 </nav>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
