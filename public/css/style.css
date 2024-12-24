@@ -181,3 +181,29 @@ card effect */
         text-align: center; 
     }
 }
+
+/* Decrease card size and content size on small screens */
+@media (max-width: 576px) {
+    .card {
+        width: 90%; /* Decrease the card width on small screens */
+        margin: 0 auto; /* Center the card */
+    }
+
+    .card-body {
+        font-size: 14px; /* Decrease font size inside the card */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .card-title {
+        font-size: 16px; /* Smaller font size for the title */
+    }
+
+    .card-text {
+        font-size: 14px; /* Smaller font size for the text */
+    }
+
+    /* Decrease the size of the stars */
+    .starability-result span {
+        font-size: 1.2rem; /* Adjust star size */
+    }
+}
