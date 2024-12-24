@@ -35,6 +35,28 @@
   .starability-result[data-rating="1"]::after {
     width: 30px;
   }
+
+  /* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .starability-result {
+    width: 120px;  /* Reduce width on smaller screens */
+  }
+
+  .starability-slot {
+    width: 120px;
+  }
+}
+
+/* Media query for screens larger than 1200px */
+@media (min-width: 1200px) {
+  .starability-result {
+    width: 180px;  /* Increase width for larger screens */
+  }
+
+  .starability-slot {
+    width: 180px;
+  }
+}
   
   @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
     .starability-result {
