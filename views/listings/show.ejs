@@ -107,6 +107,7 @@
     <div class="map-id">
         <h3 class="mb-3">Where you'll be</h3>
         <iframe
+        class="map-iframe"
             width="500"
             height="300"
             src="https://api.maptiler.com/maps/streets-v2/?key=<%=process.env.MAPTILER_API_KEY%>#12/<%= coordinates.lat %>/<%= coordinates.lng %>"
