@@ -47,6 +47,33 @@ footer */
 
 }
 
+/* Customizing navbar for small screens */
+@media (max-width: 768px) {
+    /* Ensure navbar does not overlap the content */
+    body {
+        padding-top: 56px; /* Adjust according to your navbar height */
+    }
+
+    .navbar-collapse {
+        overflow-y: auto; /* Allow scrolling for navbar items */
+    }
+
+    .navbar-nav.ms-auto {
+        margin-top: 1rem; /* Add margin-top to adjust positioning */
+    }
+
+    /* Adjusting the search button and input to fit better on small screens */
+    .input-search {
+        font-size: 0.9rem;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+    }
+
+    .btn-search {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
 
 .f-info-socials i{
     font-size: 1.2rem;
