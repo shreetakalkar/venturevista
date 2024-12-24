@@ -148,17 +148,27 @@ card effect */
     height: 300px; 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
     .map-iframe {
         width: 90%; 
         height: 200px; 
+    }
+    .map-id{
+        height: 200px;
+        width: 250px;
     }
 }
 
 
 
-@media (max-width: 768px) {
+
+@media (max-width: 500px) {
     .card-body {
         font-size: 14px; 
+
+    }
+    .card{
+        height: 150px;
+        width:100px;
     }
 }
