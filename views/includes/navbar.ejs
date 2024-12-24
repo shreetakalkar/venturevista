@@ -1,134 +1,61 @@
-<style>
-  /* Reset margins and paddings for the body and html */
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
 
-  /* Button styling */
-  .btn-search {
-    background-color: #fe424d;
+<style>
+  .btn-search{
+    background-color:#fe424d;
     color: white;
     border-radius: 25px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
+    padding: 0 1rem 0 1 rem;
   }
-  .btn-search:hover {
-    background-color: #e73a43; /* Slightly darker shade for hover */
+  .btn-search:hover{
+    background-color:#fe424d;
     color: white;
   }
-  .btn-search i {
+
+  .btn-search i{
     display: inline;
     margin-right: 0.5rem;
   }
 
-  /* Input search styling */
-  .input-search {
-    border-radius: 25px;
-    padding: 0.5rem 2rem;
+  .input-search{
+    border-radius:25px;
+    padding: 0.5rem 3rem 0.5rem 3rem ;
     font-size: 1rem;
-    border: 1px solid #ccc;
-  }
-  .input-search:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
-    border-color: #fe424d;
-  }
 
-  /* Navbar fixes */
-  .navbar {
-    height: auto;
-    background-color: #f8f9fa;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    margin: 0; /* Ensure no margin around the navbar */
-    padding: 0.5rem 1rem; /* Adjust padding as needed */
-  }
-  .navbar-brand i {
-    color: #fe424d;
-    font-size: 2rem;
-  }
-  .navbar-nav .nav-link {
-    color: #222222 !important;
-    font-size: 1rem;
-    margin-left: 1rem;
-  }
-  .navbar-nav .nav-link:hover {
-    text-decoration: underline;
-  }
-
-  /* Collapsed navbar styling */
-  .navbar-collapse {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
-  .navbar-collapse.show {
-    max-height: 500px;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .input-search {
-      font-size: 0.9rem;
-      padding: 0.4rem 1.5rem;
-    }
-    .btn-search {
-      font-size: 0.9rem;
-      padding: 0.4rem 0.8rem;
-    }
-    .navbar-nav .nav-link {
-      font-size: 0.9rem;
-      margin-left: 0.5rem;
-    }
   }
 </style>
-
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 input-search"
-            type="search"
-            placeholder="Search destinations"
-            aria-label="Search"
-          />
-          <button class="btn btn-search" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Host</a>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+     
+          <a class="nav-link" href="/listings">Explore</a>
+       
+         
+        </div>
 
-        <% if (!currUser) { %>
-        <a class="nav-link" aria-current="page" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %>
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 input-search" type="search" placeholder="Search destinations"  aria-label="Search">
+            <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Host</a>
 
-        <% if (currUser) { %>
-        <a class="nav-link" href="/logout">Log out</a>
-        <% } %>
+          <% if(!currUser) {%>
+          <a class="nav-link" aria-current="page" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+          <%}%>
+          
+          <%if(currUser) {%>
+          <a class="nav-link" href="/logout">Log out</a>
+          <%}%>
+        </div>
+
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
