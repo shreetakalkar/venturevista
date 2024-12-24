@@ -8,12 +8,13 @@
       margin: 0;
       padding: 0;
       background-color: #f2f2f2; /* Light grey for the navbar */
-      transition: background-color 0.3s ease; /* Smooth transition effect */
+      transition: height 0.3s ease, background-color 0.3s ease; /* Smooth height transition */
   }
 
   .navbar-collapse {
-      background-color: #f2f2f2; /* Match the navbar color when expanded */
-      transition: all 0.3s ease-in-out; /* Sliding effect */
+      background-color: #f2f2f2; /* Match the navbar color */
+      transition: max-height 0.3s ease-in-out; /* Smooth sliding effect */
+      overflow: hidden; /* Prevent content overflow during sliding */
   }
 
   .navbar-toggler {
@@ -21,7 +22,7 @@
   }
 
   .navbar-toggler-icon {
-      background-color: #333; /* Dark color for the toggler icon */
+      background-color: #333; /* Dark toggler icon for visibility */
   }
 
   .btn-search {
@@ -47,17 +48,21 @@
       font-size: 1rem;
   }
 
-  .sticky-top {
-      top: 0;
-      z-index: 1030;
-  }
-
   .navbar-nav .nav-link {
-      color: #333; /* Darker text color for better readability */
+      color: #333; /* Darker text for readability */
   }
 
   .navbar-nav .nav-link:hover {
-      color: #fe424d; /* Highlight effect on hover */
+      color: #fe424d; /* Highlight effect */
+  }
+
+  /* Adjust for proper sliding height */
+  .navbar-collapse.collapsing {
+      max-height: 0; /* Start from height 0 during collapse/expand */
+  }
+
+  .navbar-collapse.show {
+      max-height: 300px; /* Adjust to the expected expanded height */
   }
 </style>
 
