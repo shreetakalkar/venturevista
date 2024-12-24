@@ -174,20 +174,18 @@ card effect */
 }
 
 
-.starability-result {
-    font-size: 1.25rem;
-}
 
-.starability-result i {
-    font-size: 1.5rem;
-}
-
-@media (max-width: 500px) {
+@media (max-width: 576px) {
     .starability-result {
-        font-size: 1rem; 
+        font-size: 12px; 
+        white-space: nowrap; 
     }
+}
 
-    .starability-result i {
-        font-size: 1.25rem;
+
+@media (max-width: 768px) {
+    .starability-result {
+        font-size: 14px; 
+        white-space: nowrap; 
     }
 }
