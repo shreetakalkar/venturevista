@@ -11,9 +11,7 @@ module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs");
 };
 
-module.exports.homepage=(req,res)=>{
-    res.render("listings/home.ejs");
-}
+
 
 module.exports.showListings = async (req, res) => {
     const { id } = req.params;

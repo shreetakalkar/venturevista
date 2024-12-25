@@ -22,6 +22,10 @@ module.exports.login= async (req, res) => {
 
 }
 
+module.exports.renderhomepage=(req,res)=>{
+    res.render("listings/home.ejs");
+}
+
 module.exports.renderLoginForm=(req, res) => {
     res.render("users/login.ejs");
 
