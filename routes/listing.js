@@ -20,7 +20,7 @@ router
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
-router.get("/",listingController.homepage);
+
 
 router
   .route("/:id")
