@@ -11,7 +11,6 @@ const upload = multer({ storage });
 router
   .route("/")
   .get(wrapAsync(listingController.index))
-  .get(listingController.renderHomePage)
   .post(
     isLoggedIn,
     upload.single('listing[image]'),
