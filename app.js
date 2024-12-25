@@ -22,6 +22,7 @@ const userRouter =require("./routes/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const { error } = require('console');
+const { render } = require('ejs');
 
 
 
@@ -101,8 +102,10 @@ app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found"));
 });
 
+app.get("/",(req,res)=>{
+    res.render("home.ejs");
+});
 
-// Error Handling Middleware
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
     const stack = process.env.NODE_ENV !== "production" ? err.stack : null;
