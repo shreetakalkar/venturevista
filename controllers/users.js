@@ -23,7 +23,7 @@ module.exports.login= async (req, res) => {
 }
 
 module.exports.renderhomepage=(req,res)=>{
-    res.render("listings/home.ejs");
+    res.render("users/home.ejs");
 }
 
 module.exports.renderLoginForm=(req, res) => {
