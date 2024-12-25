@@ -102,9 +102,6 @@ app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found"));
 });
 
-app.get("/",(req,res)=>{
-    res.render("home.ejs");
-});
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
