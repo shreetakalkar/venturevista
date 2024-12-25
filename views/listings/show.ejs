@@ -31,7 +31,7 @@
     <% if (currUser && listing.owner._id.equals(currUser._id)) { %>
         <div class="btns mt-3">
             <div class="col-6 offset-3 d-flex" style="gap: 50px;">
-                <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark" style="background-color: #fe424d;">Edit</a>
+                <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark ms-2" style="background-color: #fe424d;">Edit</a>
                 <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST" style="margin: 0;">
                     <button class="btn delete-btn text-white">Delete</button>
                 </form>
@@ -75,7 +75,6 @@
             </form>
         <% } %>
     
-        
 
         <% if(listing.reviews.length > 0){ %>
             <hr>
