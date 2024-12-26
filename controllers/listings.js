@@ -4,7 +4,7 @@ const ExpressError = require("../utils/ExpressError");
 
 module.exports.index = async (req, res) => {
     const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings,isHomePage:false });
+    res.render("listings/index.ejs", { allListings });
 };
 
 module.exports.renderNewForm = (req, res) => {
