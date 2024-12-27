@@ -32,7 +32,9 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'client/dist')));
+
+// Serve React static files
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // Session and Flash
 const sessionConfig = {
@@ -40,7 +42,7 @@ const sessionConfig = {
         mongoUrl: dburl,
         crypto: { secret: process.env.SECRET },
     }),
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || 'fallbacksecret',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -72,10 +74,17 @@ app.use('/listings', listingsRouter);
 app.use('/listings/:id/reviews', reviewsRouter);
 app.use('/', userRouter);
 
-// // Catch-all React route
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
-// });
+// Catch-all React route
+app.get('*', (req, res) => {
+    const indexPath = path.join(__dirname, 'client', 'dist', 'index.html');
+    res.sendFile(indexPath, (err) => {
+        if (err) {
+            console.error("Error serving index.html:", err);
+            res.status(500).send("Server Error");
+        }
+    });
+});
+
 // Error Handling
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));
@@ -87,5 +96,5 @@ app.use((err, req, res, next) => {
 });
 
 // Server Start
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
