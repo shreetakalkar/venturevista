@@ -1,6 +1,12 @@
 const User =require("../models/user");
 
 
+
+module.exports.renderhomepage=(req,res)=>{
+    res.render("users/home.ejs",{isHomePage:true});
+}
+
+
 module.exports.logout=(req,res,next)=>{
     req.logout((err)=>{
         if(err){
@@ -22,10 +28,6 @@ module.exports.login= async (req, res) => {
 
 }
 
-
-// module.exports.renderhomepage=(req,res)=>{
-//     res.render("users/home.ejs",{isHomePage:true});
-// }
 
 module.exports.renderLoginForm=(req, res) => {
     res.render("users/login.ejs");
