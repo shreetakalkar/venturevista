@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const HomePage = () => {
@@ -10,4 +9,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePage;  // Ensure you export it to be imported in index.js

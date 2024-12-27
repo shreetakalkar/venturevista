@@ -1,12 +1,11 @@
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-import HomePage from './HomePage'; 
 
+const App = () => {
+  return (
+    <div>
+      <h1>Welcome to VentureVista</h1>
+    </div>
+  );
+};
 
-ReactDOM.render(
-  <React.StrictMode>
-    <HomePage /> 
-  </React.StrictMode>,
-  document.getElementById('root')  
-);
+export default App;  // Make sure this is here
