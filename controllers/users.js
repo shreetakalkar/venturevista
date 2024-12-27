@@ -3,7 +3,7 @@ const User = require('../models/user'); // Import your User model
 
 
 module.exports.renderhomepage = (req, res) => {
-    const indexPath = path.join(__dirname, '..', 'client/dist', 'index.html');
+    const indexPath = path.join(__dirname, '..', 'client', 'index.html');
     console.log("Resolved Index Path: ", indexPath);  // Log the resolved path for debugging
 
     res.sendFile(indexPath, (err) => {
