@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, '..', 'client', 'build'))); // Serve React static files
+app.use(express.static(path.join(__dirname, '..', 'client', 'public'))); // Serve React static files
 
 // Session and Flash
 const sessionConfig = {
@@ -74,7 +74,7 @@ app.use('/', userRouter);
 
 // Catch-all React route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'client', 'public', 'index.html'));
 });
 
 // Error Handling

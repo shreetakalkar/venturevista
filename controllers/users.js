@@ -2,7 +2,7 @@ const path = require("path");
 
 // Serve the React homepage
 module.exports.renderhomepage = (req, res) => {
-    const indexPath = path.join(__dirname, '..', 'client', 'build', 'index.html');
+    const indexPath = path.join(__dirname, '..', 'client', 'public', 'index.html');
     console.log("Index Path: ", indexPath); 
     res.sendFile(indexPath);
 }
