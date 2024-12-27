@@ -6,14 +6,12 @@ const passport = require("passport");
 const { saveRedirectUrl } = require("../middleware.js");
 const userController = require("../controllers/users.js");
 
-
 router.route("/")
     .get(userController.renderhomepage);
 
 router.route("/signup")
     .get(userController.renderSignupForm)
     .post(wrapAsync(userController.signup));
-
 
 router.route("/login")
     .get(userController.renderLoginForm)
@@ -23,10 +21,8 @@ router.route("/login")
             failureFlash: true 
         }), userController.login);
 
-
 router.route("/userlogin")
     .get(userController.renderUserLogin);
-
 
 router.get("/logout", userController.logout);
 

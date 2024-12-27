@@ -1,8 +1,10 @@
-const User = require("../models/user");
+const path = require("path");
 
 // Serve the React homepage
 module.exports.renderhomepage = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+    const indexPath = path.join(__dirname, '..', 'client', 'build', 'index.html');
+    console.log("Index Path: ", indexPath); 
+    res.sendFile(indexPath);
 }
 
 module.exports.logout = (req, res, next) => {
