@@ -3,10 +3,16 @@ const User = require('../models/user'); // Import your User model
 
 // Serve the React homepage (index.html)
 module.exports.renderhomepage = (req, res) => {
-    const indexPath = path.join(__dirname, '..','client', 'dist', 'index.html');
-    console.log("Index Path: ", indexPath); 
-    res.sendFile(indexPath);
-}
+    const indexPath = path.join(__dirname, 'client', 'dist', 'index.html');
+    console.log("Index Path: ", indexPath);  // Log to check the resolved path
+    res.sendFile(indexPath, (err) => {
+        if (err) {
+            console.error("Error serving index.html:", err); // Log any errors
+            res.status(500).send("Server Error");
+        }
+    });
+};
+
 
 // Logout functionality
 module.exports.logout = (req, res, next) => {

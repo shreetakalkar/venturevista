@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Serve React static files
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.use(express.static(path.join(__dirname, 'client', 'dist')));  // Corrected path for static files
 
 // Session and Flash
 const sessionConfig = {
@@ -74,12 +74,13 @@ app.use('/listings', listingsRouter);
 app.use('/listings/:id/reviews', reviewsRouter);
 app.use('/', userRouter);
 
-// Catch-all React route
+// Serve React homepage (index.html) for any other route
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, 'client', 'dist', 'index.html');
+    console.log("Index Path: ", indexPath);  // Log to ensure correct path
     res.sendFile(indexPath, (err) => {
         if (err) {
-            console.error("Error serving index.html:", err);
+            console.error("Error serving index.html:", err);  // Log error if path is incorrect
             res.status(500).send("Server Error");
         }
     });
