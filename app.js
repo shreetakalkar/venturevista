@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Serve React static files
-app.use(express.static(path.join(__dirname, 'client', 'dist')));  // Corrected path for static files
+app.use(express.static(path.join(__dirname, 'client')));  // Corrected path for static files
 
 // Session and Flash
 const sessionConfig = {
