@@ -72,10 +72,10 @@ app.use('/listings', listingsRouter);
 app.use('/listings/:id/reviews', reviewsRouter);
 app.use('/', userRouter);
 
-// Catch-all React route
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/dist/index.html'));
-});
+// // Catch-all React route
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+// });
 // Error Handling
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));
