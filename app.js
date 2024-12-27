@@ -49,6 +49,9 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static('public'));
 
+
+
+app.locals.isHomePage = false;
 const store=MongoStore.create({
     mongoUrl:dburl,
     crypto:{
@@ -89,6 +92,7 @@ app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
   res.locals.currUser=req.user;
+
     next();
 });
 
