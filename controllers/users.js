@@ -16,11 +16,12 @@ module.exports.logout=(req,res,next)=>{
 
 module.exports.login= async (req, res) => {
 
-    req.flash("success","Welcome back to VentureVista");
+    req.flash("success","Welcome back Owner");
     let redirectUrl=res.locals.redirectUrl || "/listings";
     res.redirect(redirectUrl);
 
 }
+
 
 // module.exports.renderhomepage=(req,res)=>{
 //     res.render("users/home.ejs",{isHomePage:true});
@@ -35,6 +36,9 @@ module.exports.renderSignupForm=(req, res) => {
     res.render("users/signup.ejs");
 }
 
+module.exports.renderUserLogin=(req,res)=>{
+    res.render("users/userlogin.ejs");
+}
 
 module.exports.signup=async (req, res) => {
     try {

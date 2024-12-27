@@ -23,6 +23,8 @@ router.route("/login")
         failureFlash: true 
     }),userController.login);
 
+router.route("/userlogin")
+.get(userController.renderUserLogin)
 
 router.get("/logout",userController.logout);
 
