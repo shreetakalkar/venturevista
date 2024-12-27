@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV!="production"){
+if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
@@ -14,21 +14,15 @@ const Review = require("./models/review.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
-const password=require("passport");
-const LocalStrategy=require("passport-local");
-const User=require("./models/user.js");
 const passport = require("passport");
-const userRouter =require("./routes/user.js");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
+const userRouter = require("./routes/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
-const { error } = require('console');
-const { render } = require('ejs');
 
 
-
-
-const dburl=process.env.ATLASDB_URL;
-
+const dburl = process.env.ATLASDB_URL;
 
 async function main() {
     try {
@@ -40,33 +34,34 @@ async function main() {
 }
 
 main();
+
+
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set("views", path.join(__dirname, "views"));
 app.engine("ejs", ejsmate);
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'client', 'build')));  
 
-
-
-app.locals.isHomePage = false;
-const store=MongoStore.create({
-    mongoUrl:dburl,
-    crypto:{
-        secret:process.env.SECRET,
+const store = MongoStore.create({
+    mongoUrl: dburl,
+    crypto: {
+        secret: process.env.SECRET,
     },
-    touchAfter:24 * 3600,
+    touchAfter: 24 * 3600,
 });
 
-store.on("error",()=>{
-    console.log("ERROR IN MONGO SESSION STORE",err);
-})
+store.on("error", (err) => {
+    console.log("ERROR IN MONGO SESSION STORE", err);
+});
 
 const sessionOptions = {
     store,
-    secret:process.env.SECRET,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -76,10 +71,9 @@ const sessionOptions = {
     },
 };
 
-
-
 app.use(session(sessionOptions));
 app.use(flash());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -91,15 +85,18 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-  res.locals.currUser=req.user;
-
+    res.locals.currUser = req.user;
     next();
 });
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
-app.use("/",userRouter);
+app.use("/", userRouter);
 
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 
 app.all("*", (req, res, next) => {
