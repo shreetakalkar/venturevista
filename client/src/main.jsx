@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HomePage from './HomePage'; // Import your HomePage component
+import App from './App'; // Import your main App component
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HomePage />  {/* Render the HomePage component */}
+    <App />
   </React.StrictMode>
 );
