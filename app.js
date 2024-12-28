@@ -24,7 +24,7 @@ console.log(process.env.SECRET);
 
 // "mongodb://127.0.0.1:27017/venturevista"
 
-const dburl =process.env.ATLASDB_URL;
+const dburl = process.env.ATLASDB_URL;
 
 async function main() {
     try {
@@ -47,9 +47,9 @@ app.engine("ejs", ejsmate);
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
-app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serving Vite built assets from frontend/dist
+app.use(express.static(path.join(__dirname, "frontend", "dist"))); 
 
-// app.local.isHomePage=false;
+
 const store = MongoStore.create({
     mongoUrl: dburl,
     crypto: {
