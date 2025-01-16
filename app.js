@@ -22,8 +22,8 @@ if (process.env.NODE_ENV !== "production") {
 
 console.log(process.env.SECRET);
 
-// "mongodb://127.0.0.1:27017/venturevista"
 
+//"mongodb://127.0.0.1:27017/venturevista"
 const dburl = process.env.ATLASDB_URL;
 
 async function main() {
@@ -37,7 +37,7 @@ async function main() {
 
 main();
 
-// Set up view engine and EJS
+
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "views"));
@@ -90,24 +90,24 @@ app.use((req, res, next) => {
     next();
 });
 
-// Use routes
+
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
-// Handle 404 errors
+
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found"));
 });
 
-// Error handling middleware
+
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
     const stack = process.env.NODE_ENV !== "production" ? err.stack : null;
     res.status(statusCode).render("error.ejs", { message, stack });
 });
 
-// Start the server
+
 app.listen(8080, () => {
     console.log("Server is listening on port 8080");
 });
