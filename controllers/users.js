@@ -1,9 +1,9 @@
 const User =require("../models/user");
 const path = require("path");
 
-module.exports.renderhomepage = (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "frontend", "index.html"));
-};
+// module.exports.renderhomepage = (req, res) => {
+    
+// };
 
 module.exports.logout=(req,res,next)=>{
     req.logout((err)=>{

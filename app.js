@@ -23,8 +23,8 @@ if (process.env.NODE_ENV !== "production") {
 console.log(process.env.SECRET);
 
 
-//"mongodb://127.0.0.1:27017/venturevista"
-const dburl = process.env.ATLASDB_URL;
+
+const dburl = "mongodb://127.0.0.1:27017/venturevista";
 
 async function main() {
     try {

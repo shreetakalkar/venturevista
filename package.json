@@ -4,8 +4,12 @@
   },
   "name": "venturevista",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
+"  engines":{
+  "node":"14.x"
+},
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
