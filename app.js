@@ -15,16 +15,13 @@ const userRouter = require("./routes/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 
-
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
 console.log(process.env.SECRET);
 
-
-
-const dburl = "mongodb://127.0.0.1:27017/venturevista";
+const dburl = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/venturevista";
 
 async function main() {
     try {
@@ -37,18 +34,15 @@ async function main() {
 
 main();
 
-
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "views"));
 app.engine("ejs", ejsmate);
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.static(path.join(__dirname, "frontend", "dist"))); 
-
 
 const store = MongoStore.create({
     mongoUrl: dburl,
@@ -90,16 +84,13 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
-
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not Found"));
 });
-
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = "Something went wrong" } = err;
@@ -107,7 +98,4 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error.ejs", { message, stack });
 });
 
-
-app.listen(8080, () => {
-    console.log("Server is listening on port 8080");
-});
+module.exports = app;
